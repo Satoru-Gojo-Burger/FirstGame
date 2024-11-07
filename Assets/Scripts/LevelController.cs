@@ -14,6 +14,7 @@ namespace Golf
         [SerializeField]
         private float m_delay = 2f;
         private int m_score = 0;
+        private int m_dif = 0;
 
         private List<Stone> m_stones = new List<Stone>();
 
@@ -28,6 +29,8 @@ namespace Golf
             m_score = 0;
 
             ClearStones();
+            m_delay = 2f;
+            // изменить текст сложности на изи
         }
 
         private void OnDisable()
@@ -52,16 +55,39 @@ namespace Golf
         {
             if (Time.time > m_timer + m_delay)
             {
+                m_dif += 1;
                 m_timer = Time.time;
-
+                m_delay -= 0.2f;
                 var go = stoneSpawner.Spawn();
                 var stone = go.GetComponent<Stone>();
-
+                HardChenge(m_dif);
                 stone.onCollisionStone += OnCollisionStone;
 
                 m_stones.Add(stone);
             }
 
+        }
+
+        private void HardChenge(int count)
+        {
+            if (count == 5)
+            {
+                m_delay -= 0.2f;
+                // изменить текст сложности medium
+                Debug.Log($"dif: medium");
+            }
+            if (count == 10)
+            {
+                m_delay -= 0.2f;
+                // изменить текст сложности hard
+                Debug.Log($"dif: hard");
+            }
+            if (count == 15)
+            {
+                m_delay -= 0.2f;
+                // изменить текст сложности insane
+                Debug.Log($"dif: insane");
+            }
         }
 
         private void OnCollisionStick()
