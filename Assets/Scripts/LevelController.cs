@@ -17,7 +17,8 @@ namespace Golf
         private int m_score = 0;
         private int m_dif = 0;
         public TMPro.TextMeshProUGUI difficultText;
-        private int m_MaxLife = 3;
+        public AudioSource Fx;
+        public AudioClip DamageFx;
         public int Life = 3;
         public Slider slider;
 
@@ -112,6 +113,7 @@ namespace Golf
         {
             Life -= 1;
             slider.value = Life;
+            Fx.PlayOneShot(DamageFx);
             Debug.Log("Hit");
             if (Life == 0)
             {

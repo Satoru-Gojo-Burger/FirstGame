@@ -8,6 +8,8 @@ namespace Golf
         public float maxAngle = 30f;
         public float speed = 360f;
         public float power = 100f;
+        public AudioSource Fx;
+        public AudioClip HitFx;
         public Transform point;
         public event System.Action onCollisionStone;
 
@@ -58,6 +60,7 @@ namespace Golf
                 other.rigidbody.AddForce(m_dir * power, ForceMode.Impulse);
                 onCollisionStone?.Invoke();
             }
+            Fx.PlayOneShot(HitFx);
         }
     }
 }
