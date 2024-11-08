@@ -29,5 +29,10 @@ namespace Golf
             gameObject.SetActive(false);
             gamePlayState.gameObject.SetActive(true);
         }
+        public void Quit()
+        {
+            Application.Quit();
+            Debug.Log("Выход");
+        }
     }
 }
