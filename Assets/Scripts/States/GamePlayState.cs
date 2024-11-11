@@ -12,9 +12,13 @@ namespace Golf
         public LevelController levelController;
         public GameObject rootUI;
         public TMPro.TextMeshProUGUI scoreText;
+        public GameObject Music;
+        public AudioSource Fx;
+        public AudioClip FailFx;
 
         private void OnEnable()
         {
+            Music.SetActive(true);
             rootUI.SetActive(true);
             playerController.enabled = true;
             levelController.enabled = true;
@@ -29,9 +33,14 @@ namespace Golf
 
         private void OnDisable()
         {
+            Fx.PlayOneShot(FailFx);
             if (rootUI)
             {
                 rootUI.SetActive(false);
+            }
+            if (Music)
+            {
+                Music.SetActive(false);
             }
 
             if (playerController)
