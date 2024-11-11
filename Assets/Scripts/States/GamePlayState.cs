@@ -13,8 +13,6 @@ namespace Golf
         public GameObject rootUI;
         public TMPro.TextMeshProUGUI scoreText;
         public GameObject Music;
-        public AudioSource Fx;
-        public AudioClip FailFx;
 
         private void OnEnable()
         {
@@ -33,7 +31,7 @@ namespace Golf
 
         private void OnDisable()
         {
-            Fx.PlayOneShot(FailFx);
+            
             if (rootUI)
             {
                 rootUI.SetActive(false);
