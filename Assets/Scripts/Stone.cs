@@ -17,9 +17,8 @@ namespace Golf
                 return;
             }
 
-            if (other.gameObject.TryGetComponent<Stone>(out var stone))
+            if (other.gameObject.TryGetComponent<DamageZone>(out var stone))
             {
-                stone.isDirty = true;
 
                 onCollisionStone?.Invoke();
             }
