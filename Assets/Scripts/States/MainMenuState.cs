@@ -11,6 +11,7 @@ namespace Golf
         public GameObject mainMenuUI;
         public GamePlayState gamePlayState;
         public TextMeshProUGUI scoreText;
+        public View View;
 
         private void OnEnable()
         {
@@ -33,6 +34,15 @@ namespace Golf
         {
             Application.Quit();
             Debug.Log("Выход");
+        }
+        public void ViewDown()
+        {
+            View.Down();
+        }
+
+        public void ViewUp()
+        {
+            View.Up();
         }
     }
 }
