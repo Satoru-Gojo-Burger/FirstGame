@@ -5,6 +5,7 @@ namespace Golf
     public class PlayerController : MonoBehaviour
     {
         public Stick stick;
+        public View view;
 
         private void FixedUpdate()
         {
@@ -26,6 +27,16 @@ namespace Golf
         public void PointerUp()
         {
             stick.Up();
+        }
+
+        public void ViewDown()
+        {
+            view.Down();
+        }
+
+        public void ViewUp()
+        {
+            view.Up();
         }
     }
 }
